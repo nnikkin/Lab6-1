@@ -33,8 +33,6 @@ def read_binary_file(filename):
         
         # Создаем матрицу для данных
         map_matrix = np.array(struct.unpack(f'{size}f', bytes)) / 10
-        #map_matrix *= map_metadata['stepx']
-        #map_matrix *= map_metadata['stepx']
         map_matrix += map_metadata['baselevel']
 
         # для imshow нужен 2D-array
@@ -46,7 +44,6 @@ def read_binary_file(filename):
 def analyze_data(map_metadata, map_matrix):
     plt.figure(figsize=(map_metadata['ylen']/50, map_metadata['xlen']/50))
 
-    print()
     # x 0-6000, y 0-1200
     plt.imshow(
         map_matrix,
